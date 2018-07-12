@@ -1,0 +1,313 @@
+
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title></title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.css' rel='stylesheet' />
+  <script src='https://api.mapbox.com/mapbox-gl-js/v0.46.0/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v0.46.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
+</head>
+<body>
+
+<style>
+#map {
+    position: fixed;
+    width:50%;
+}
+#features {
+    width: 50%;
+    margin-left: 50%;
+    font-family: Tw Cen MT;
+    overflow-y: scroll;
+    background-color: #fafafa;
+}
+section {
+    padding:  25px 50px;
+    line-height: 25px;
+    border-bottom: 1px solid #ddd;
+    opacity: 0.25;
+    font-size: 20px;
+}
+section.active {
+    opacity: 1;
+}
+section:last-child {
+    border-bottom: none;
+    margin-bottom: 1000px;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+
+h2,
+h3 {
+  margin: 10px;
+  font-size: 1.2em;
+}
+
+h3 {
+  font-size: 1em;
+}
+
+p {
+  font-size: 0.85em;
+  margin: 10px;
+  text-align: left;
+}
+
+/**
+* Create a position for the map
+* on the page */
+#map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+/**
+* Set rules for how the map overlays
+* (info box and legend) will be displayed
+* on the page. */
+.map-overlay {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.8);
+  margin-right: 20px;
+  font-family: Arial, sans-serif;
+  overflow: auto;
+  border-radius: 3px;
+}
+
+#overlayfeatures {
+  top: 0;
+  right: 50%;
+  height: 100px;
+  margin-top: 20px;
+  width: 250px;
+  position: fixed;
+}
+
+#legend {
+  padding: 10px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  line-height: 18px;
+  height: 150px;
+  margin-bottom: 40px;
+  width: 100px;
+}
+
+.legend-key {
+  display: inline-block;
+  border-radius: 20%;
+  width: 10px;
+  height: 10px;
+  margin-right: 5px;
+}
+</style>
+
+<div id='map'></div>
+<div class='map-overlay' id='overlayfeatures'><h2>World Cup Wins</h2><div id='pd'><p>Hover over a country that qualifier!</p></div></div>
+
+  <div id='features'>
+    <section id='welcome' class='active'>
+      <h1>Serbias Trip Through The World Cup</h1>
+    </section>
+    <section id='section1' class='active'>
+        <h2>Serbia</h2>
+      <p>
+      For the first 60 years of the world cup (1930 - 1990), Serbia was part of the Socialist Feberal Republic of Yugoslavia, and as such, played with them for it. 
+        <br>
+        The SFR Yugoslavia qualified 8 out of 14 times.
+      </p>
+      <p>
+      From 1994 to 2006, they played alongside Montenegro, qualifying 2 out of 4 times.
+      </p>
+      <p>
+      Since then, they've played as an independent country, and made it 3 out of 5 times!
+      </p>
+      <br>
+      <p>
+      <iframe src="https://giphy.com/embed/3o6fIRA4Eqkf3zrEUo" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+      </p>
+    </section>
+    <section id='section2'>
+        <h2>Serbia vs Costa Rica</h2>
+      <p>
+        Location: Cosmos Arena, Samara
+        <br>
+                <p>Match Highlights<br><br><iframe width="560" height="315" src="https://www.youtube.com/embed/bA6_7wFvG0E" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> </p>
+        
+    <br>
+        <p>
+      Match <a href="https://www.google.co.uk/search?ei=tkNHW8CrL8K4UbyciagC&q=serbia+vs+costa+rica+world+cup&oq=serbia+vs+costa+rica+world+cup&gs_l=psy-ab.3..0i67k1j0l8.2072.2203.0.2343.2.2.0.0.0.0.86.86.1.1.0....0...1c.1.64.psy-ab..1.1.85....0.e0W1lonp360#sie=m;/g/11f62zz33p;2;/m/030q7;dt;fp;1">Statistics</a>
+        <br>
+               <p> <div id="spoiler1" style="display:none">
+Final Score: <br>Serbia 1 - 0 Costa Rica
+      </div>
+<p>
+<button title="Click to show/hide content" type="button"
+onclick="if(document.getElementById('spoiler1') .style.display=='none')
+{document.getElementById('spoiler1') .style.display=''}else{document.getElementById('spoiler1')
+.style.display='none'}">Show/Hide Match Results</button>
+      </p>
+    </section>
+    <section id='section3'>
+        <h2>Serbia vs Switzerland</h2>
+      <p>
+        Location: Kaliningrad Stadium, Kaliningrad
+        <br>
+                        <p>Match Highlights<br><br><iframe width="560" height="315" src="https://www.youtube.com/embed/0O3CbugZtTg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> </p>
+        
+          <p>
+<br>
+        Match <a href="https://www.google.co.uk/search?biw=2560&bih=1307&ei=MkVHW_q1Htb4rQHugJ3YAw&q=serbia+vs+switzerland+world+cup&oq=serbia+vs+switzerland+world+cup&gs_l=psy-ab.3..0i13k1l10.2406.6514.0.6662.11.11.0.0.0.0.369.1094.3-3.3.0....0...1c.1.64.psy-ab..8.3.1094....0.h7a7N3jdupw#sie=m;/g/11f62zy5s1;2;/m/030q7;dt;fp;1">Statistics</a>
+             </p>
+ 
+        
+                  <p>
+     <div id="spoiler2" style="display:none">
+Final Score: <br>Serbia 1 - 2 Switzerland
+      </div>
+<p>
+<button title="Click to show/hide content" type="button"
+onclick="if(document.getElementById('spoiler2') .style.display=='none')
+{document.getElementById('spoiler2') .style.display=''}else{document.getElementById('spoiler2')
+.style.display='none'}">Show/Hide Match Results</button>
+      </p>
+    </section>
+    <section id='section4'>
+        <h2>Serbia vs Brazil</h2>
+              <p>
+        Location: Otkritie Arena, Moscow
+        <br>
+                                        <p>Match Highlights<br><br><iframe width="560" height="315" src="https://www.youtube.com/embed/_dusyi-4pMs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> </p>
+        <p>
+    <br>
+        Match <a href="https://www.google.co.uk/search?client=psy-ab&hl=en-GB&ei=OUVHW_bLIMWi8AXF6qD4AQ&q=serbia+vs+brazilworld+cup&oq=serbia+vs+brazilworld+cup&gs_l=psy-ab.3..0i7i30k1l3j0i8i7i30k1.39709.40893.0.41075.6.6.0.0.0.0.362.362.3-1.1.0....0...1c.1.64.psy-ab..5.1.362....0.Qx2P2LNGKzA#sie=m;/g/11f4qdwvqg;2;/m/030q7;dt;fp;1">Statistics</a>
+                
+                
+                   <p>
+     
+                 <div id="spoiler3" style="display:none">
+Final Score: <br>Serbia 0 - 2 Brazil
+      </div>
+        <p>
+
+<button title="Click to show/hide content" type="button"
+onclick="if(document.getElementById('spoiler3') .style.display=='none')
+{document.getElementById('spoiler3') .style.display=''}else{document.getElementById('spoiler3')
+.style.display='none'}">Show/Hide Match Results</button>
+                
+                
+      </p>
+    </section>
+    <section id='section5'>
+        <h2>
+      <a href="https://www.google.co.uk/search?q=eng+to+serbain&oq=eng+to+serbain&aqs=chrome..69i57j0l3.4960j1j7&sourceid=chrome&ie=UTF-8">цоммисератионс</a></h2>  
+      
+      
+      <p> Unfortunately, Serbia didn't make it past the group stages this year. Who knows, maybe 2022?    
+        <br><br>
+        <iframe src="https://giphy.com/embed/tZCkL6BsL2AAo" width="480" height="431" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+        
+        
+    </section>
+</div>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1Ijoicm9mbGFoZXJ0eSIsImEiOiJjamRuM3ZnOXYwOXd2MzNta3c4anJwZmxwIn0.8spF2iRLxngwvKAR3S19FA';
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/roflaherty/cjiosxrwu1enk2rqofp7o6w7q',
+        bearing: 0.00,
+        center: [20.498233, 41.987604],
+        zoom: 1.96,
+        speed: 0.8,
+        pitch: 0.00
+});
+var chapters = {
+    'welcome': {
+        bearing: 0.00,
+        center: [20.498233, 41.987604],
+        zoom: 1.96,
+        speed: 0.8,
+        pitch: 0.00
+    },
+    'section1': {
+        bearing: 13.60,
+        center: [21.042234, 43.743898],
+        zoom: 6.58,
+        pitch: 40.50
+    },
+    'section2': {
+        center: [50.238038, 53.277986],
+        bearing: 17.12,
+        zoom: 16.87,
+        speed: 0.6,
+        pitch: 50.50
+    },
+    'section3': {
+        bearing: -28.75,
+        center: [20.533228, 54.698770],
+        zoom: 16.14,
+        speed: 0.6,
+        pitch: 56.50
+    },
+    'section4': {
+        bearing: 70.45,
+        center: [37.540505, 55.786058],
+        zoom: 16.09,
+        speed: 0.6,
+        pitch: 54.50
+    },
+    'section5': {
+        bearing: 0.00,
+        center: [20.498233, 41.987604],
+        zoom: 1.96,
+        speed: 0.8,
+        pitch: 0.00
+    },
+};
+// On every scroll event, check which element is on screen
+window.onscroll = function() {
+    var chapterNames = Object.keys(chapters);
+    for (var i = 0; i < chapterNames.length; i++) {
+        var chapterName = chapterNames[i];
+        if (isElementOnScreen(chapterName)) {
+            setActiveChapter(chapterName);
+            break;
+        }
+    }
+};
+var activeChapterName = 'baker';
+function setActiveChapter(chapterName) {
+    if (chapterName === activeChapterName) return;
+    map.flyTo(chapters[chapterName]);
+    document.getElementById(chapterName).setAttribute('class', 'active');
+    document.getElementById(activeChapterName).setAttribute('class', '');
+    activeChapterName = chapterName;
+}
+function isElementOnScreen(id) {
+    var element = document.getElementById(id);
+    var bounds = element.getBoundingClientRect();
+    return bounds.top < window.innerHeight && bounds.bottom > 0;
+}
+map.on('mousemove', function(e) {
+ var states = map.queryRenderedFeatures(e.point, { layers: ['teams-43t3jr'] });
+
+  if (states.length > 0) {
+    document.getElementById('pd').innerHTML = '<h3><strong>' + states[0].properties.SOVEREIGNT + '</strong></h3><p><strong><em>' + states[0].properties.wins + '</strong> win(s)</em></p>';
+  } else {
+    document.getElementById('pd').innerHTML = '<p>Hover over a country that qualified!</p>';
+  }
+});
+</script>
+</body>
